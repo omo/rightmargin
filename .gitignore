@@ -21,3 +21,6 @@ _testmain.go
 
 *.exe
 *.test
+
+# Server binary
+web/web
