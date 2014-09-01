@@ -4,7 +4,7 @@
 
 # For coding workflow
 run: web
-	docker run --rm -P -v "${PWD}/web:/usr/local/web:ro" rightmargin
+	docker run --rm -p 8080:8080 -v "${PWD}/web:/usr/local/web:ro" rightmargin
 
 web: web/rightmargin
 
@@ -13,9 +13,10 @@ web/rightmargin:
 
 # For operating image
 run-image:
-	docker run --rm -P rightmargin
+	docker run --rm -p 8080:8080 rightmargin
 
 build-image:
-	docker build --rm --no-cache -t rightmargin web
+	-docker rmi rightmargin
+	docker build --rm=true -no-cache -t rightmargin web
 
 .PHONY: run build-image run-image

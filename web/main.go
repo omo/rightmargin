@@ -1,21 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"github.com/gin-gonic/gin"
 	"os"
 )
 
 func main() {
+	// TODO(morrita): Move to flag?
 	port := os.Getenv("PORT")
-	http.HandleFunc("/", hello)
-	fmt.Printf("listening %s...\n", port)
-	err := http.ListenAndServe(":"+port, nil)
-	if err != nil {
-		panic(err)
-	}
-}
 
-func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, "hello, heroku")
+	r := gin.Default()
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Hello!")
+	})
+
+	r.Run(":" + port)
 }
