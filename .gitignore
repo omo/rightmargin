@@ -22,5 +22,8 @@ _testmain.go
 *.exe
 *.test
 
-# Server binary
+
 web/web
+web/node_modules
+web/public/css
+web/public/js
