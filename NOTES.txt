@@ -1,0 +1,6 @@
+
+ * The frontend is on web/, written in Go, assumed to run on Docker.
+ * For local development, Dockerized MongoDB is used.
+   * Use `scripts/run-mongodb.sh` to start MongoDB container
+   * See https://github.com/dockerfile/mongodb for its configuration
+
